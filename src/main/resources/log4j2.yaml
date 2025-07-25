@@ -1,0 +1,22 @@
+Configuration:
+  status: warn
+  name: LoggerConfig
+
+  Appenders:
+    Console:
+      name: Console
+      target: SYSTEM_OUT
+      PatternLayout:
+        pattern: "[%-5level] - (%t) - %msg%n"
+
+  Loggers:
+    Logger:
+      - name: com.zaxxer.hikari
+        level: warn
+        additivity: false
+        AppenderRef:
+          - ref: Console
+    Root:
+      level: info
+      AppenderRef:
+        - ref: Console
